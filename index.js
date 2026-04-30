@@ -7,16 +7,12 @@ function createLoginTracker(userInfo) {
         }
 
         if (passwordAttempt === userInfo.password) {
+            wrongLoginCount = 0;
             return "Login successful";
         }
 
         wrongLoginCount++;
-
-        if (wrongLoginCount === 3) {
-            return "Account locked due to too many failed login attempts";
-        }
-
-        return `Login attempt ${wrongLoginCount}: Login failed`;
+        return `Attempt ${wrongLoginCount}: Login failed`;
     };
 
     return loginAttempt;
